@@ -1,0 +1,10 @@
+//js°æ
+for(var key in json){
+	console.log(key)
+	console.log(json[key])
+	}
+//jqurey°æ
+$.each(json, function(i) {
+    alert(json[i]);	//Coding, 100
+    alert(i);   	//Type, Height
+});

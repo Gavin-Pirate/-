@@ -1,0 +1,2 @@
+当E不是F的一个子元素时 first-child失效 此时应该使用first-of-type
+F E:first-child 

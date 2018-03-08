@@ -1,0 +1,62 @@
+GET请求传值方式为URL?attribute=""&attribute=""
+POST请求传值方式为send(data) data=attribute=""&attribute=""
+
+第一步 创建XMLHttpRequest()对象
+第二步 .open（"REQUEST_METHOD",URL,ture/false）
+第三步 .send([data])
+第四步 .onreadystatechange readyState === 0-4 status === 1**/2**/3**/4**/5**
+
+//	js中字符串转换成json对象的两种方法（js解析json字符串）
+	var jsondata = '{"staff":[{"name":"洪七","age":alert(123)}]}'
+//	var jsonobj = eval("("+jsondata+")");
+//	alert(jsonobj.staff[0].name)
+	//eval()会执行字符转内的js代码
+	
+	var jsonobj1 = JSON.parse(jsondata);
+	alert(jsonobj1.staff[0].name)
+	//JSON.parse()方法会检测JSON字符串是否规范
+	//抛异常 JSON字符串格式不正确
+
+readystate属性值
+	0:请求初始化,open未调用
+	1:服务器连接已经建立,open已调用
+	2:服务器已接收,收到头信息
+	3:服务器处理中,收到响应主体
+	4:请求已完成,且响应完成
+jQuery的ajax封装
+$.ajax({
+	type:"GET",
+	url:"http://127.0.0.1:8080/ajaxdemo/userservice.php?username="+$("#user-email").val()+"&&password="+$("#user-pwd").val(),
+	dataType:"json",
+	success:function(date){
+		if(date.success){
+			alert("登录成功！")
+		}else{
+			alert("登录失败:"+date.msg)
+		}
+	},
+	error:function(jqXHR){
+		alert("发生错误："+jqXHR.status)
+	}
+})
+$.ajax({
+	type:"POST",
+	url:"service.php?",
+	data:{
+		name:$("#staffName").val(),
+		number:$("#staffNumber").val(),
+		sex:$("#staffSex").val(),
+		job:$("#staffJob").val()
+		 },
+	dataType:"json",
+	success:function(date){
+		if(date.success){
+			$('#creatResult').html(date.msg)
+		}else{
+			$('#creatResult').html("出现错误"+date.msg)	
+		}
+	},
+	error:function(){
+		alert("发生错误："+jqXHR.status)
+	}
+})

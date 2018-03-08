@@ -1,0 +1,7 @@
+header("Content-Type:text/plain;charset=utf-8"); //´¿ÎÄ±¾
+header("Content-Type:application/json;charset=utf-8"); //JSON×Ö·û´®
+header('Access-Control-Allow-Origin:*'); //¿çÓò£¬XHR2£¨XMLHttpRequst Level2£©
+header('Access-Control-Allow-Methods:POST,GET'); //XHR2
+header("Content-Type:text/xml;charset=utf-8"); 
+header("Content-Type:text/html;charset=utf-8"); 
+header("Content-Type:text/javascript;charset=utf-8"); 

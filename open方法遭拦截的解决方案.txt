@@ -1,0 +1,5 @@
+1、使用a标签替代
+var $a = $("<a href='login.html' target='_self'></a>").appendTo("body")
+$a[0].click()
+
+现象：当window.open为用户触发事件内部或者加载时，不会被拦截，若代码移动到ajax或者一段异步代码内部，就会被拦截
